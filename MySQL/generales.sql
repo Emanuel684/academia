@@ -21,3 +21,39 @@ GRANT ALL PRIVILEGES ON academia* TO 'nombre_usuario'@'localhost';
 
 
 desc tipo_documento; -- Ver la descripcion de una tabla en una base de datos
+
+-- CLASE #2 CON MYSQL
+
+mysqldump -u emanuel -p academia >MySQL\script_exportable.sql -- Exportar una base de datos en formato sql
+
+UNSIGNED -- Para que no reciva valores negativos
+
+SHOW ENGINES; -- Mostrar los motores de almacenamiento 
+
+-- /////////////////////////////////////////////////
+-- ALTERS
+
+ALTER TABLE modulos
+ADD PRIMARY KEY(id);
+
+ALTER TABLE modulos
+DROP COLUMN mo;
+
+ALTER TABLE modulos
+ADD COLUMN `mod` VARCHAR(10);
+
+-- /////////////////////////////////////////////
+
+-- FOREN KEYS
+ALTER TABLE actores
+ADD CONSTRAINT `fk_estado_actor`
+FOREIGN KEY (`estado_actor_id`)
+REFERENCES `estado_actores` (`id`);
+
+CONSTRAINT `fk_estado_actor`
+    FOREIGN KEY (`estado_actor_id`)
+    REFERENCES `estado_actores` (`id`)
+        ON DELETE RESTRICT
+        ON UPDATE CASCADE
+
+FOREIGN KEY (`tipo_actor_id`) REFERENCES `tipo_actores` (`id`)
