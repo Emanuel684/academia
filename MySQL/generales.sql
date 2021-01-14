@@ -57,3 +57,8 @@ CONSTRAINT `fk_estado_actor`
         ON UPDATE CASCADE
 
 FOREIGN KEY (`tipo_actor_id`) REFERENCES `tipo_actores` (`id`)
+
+-- /////////////////////////////////////////////////
+
+-- Mostrar informacion de la tabla
+SELECT * FROM tipo_actores;
